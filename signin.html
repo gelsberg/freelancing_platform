@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #092635;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .container {
+            width: 350px;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .container h3 {
+            color: #092635;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #092635;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .container input:focus {
+            outline: none;
+            border-color: #092635;
+            background-color: #f0f0f0;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #092635;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .container button:hover {
+            background-color: #0e3c4f;
+        }
+
+        .container a {
+            color: #092635;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .container a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .navbar ul li a:hover {
+            color: #c9d6df;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="first.html">HustleHub</a></li>
+         <li><a href="user.html">Users</a></li>
+            
+            <li><a href="signin.html">Signin</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h3>Sign In</h3>
+        <form id="loginForm" action="login.php" method="POST">
+            <label for="username">Username / Email</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            
+            <button type="submit">Sign In</button>
+        </form>
+        
+        <a href="signup.html">Don't have an account? Sign up</a>
+    </div>
+</body>
+</html>

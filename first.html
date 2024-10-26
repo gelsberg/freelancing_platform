@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancing - HustleHub</title>
+    <style>
+        /* General styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #092635;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+        }
+
+        .navbar ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .title {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #f1c40f;
+        }
+
+        /* Banner and content area */
+        .banner {
+            height: 90vh;
+            background: linear-gradient(to right, rgba(9, 38, 53, 0.8), rgba(9, 38, 53, 0.8)), url('homepg.jpg') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .banner p {
+            font-size: 1.2em;
+        }
+
+        .banner .search-container {
+            margin-top: 30px;
+        }
+
+        .search-container input {
+            padding: 15px;
+            width: 300px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-container button {
+            padding: 15px 25px;
+            background-color: #f1c40f;
+            color: #092635;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        /* Info Section for Work and Hire */
+        .info-section {
+            padding: 50px 0;
+            background-color: #fff;
+        }
+
+        .info-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .info-container .info-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            width: 45%;
+        }
+
+        .info-container .info-card h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .info-container .info-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #092635;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 2.5em;
+            }
+
+            .info-container {
+                flex-direction: column;
+            }
+
+            .info-container .info-card {
+                width: 80%;
+                margin-bottom: 30px;
+            }
+
+            .search-container input {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="first.html" class="title">HustleHub</a></li>
+         
+            <li><a href="signin.html">Signin</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </div>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <div class="content">
+            <h1>Find Your Perfect Assistant</h1>
+            <p>Busy? Let Us Help You Get the Job Done</p>
+            <div class="search-container">
+                <form action="/search" method="GET">
+                    <input type="text" name="query" placeholder="Explore your options">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Work & Hire Section -->
+    <div class="info-section">
+        <div class="info-container">
+            <div class="info-card">
+                <h2>Work</h2>
+                <p>Find freelancing opportunities that suit your skills and availability. Be your own boss, work flexibly, and earn.</p>
+            </div>
+            <div class="info-card">
+                <h2>Hire</h2>
+                <p>Need quick assistance? Hire short-term professionals to get your project completed on time and with efficiency.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 HustleHub. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

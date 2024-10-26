@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HustleHub - Freelancer Platform</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #092635;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            padding: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navbar .title {
+            font-size: 1.8em;
+            color: white;
+            
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .navbar a:hover {
+            background-color: #0e3c4f;
+            border-radius: 5px;
+        }
+
+        /* Container and content styles */
+        .container {
+            text-align: center;
+            margin: 60px auto;
+            padding: 20px;
+            max-width: 900px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        /* Option buttons */
+        .options {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .options li {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .options li:hover {
+            background-color: #45a049;
+            transform: translateY(-5px);
+        }
+
+        .options a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.3em;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+            }
+
+            .options {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .options li {
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a class="title" href="first.html"><b>HustleHub</b></a>
+        <ul>
+            
+            <li><a href="user.html">Users</a></li>
+            <li><a href="signin.html" style="margin-left:auto;">Signin</a></li>
+            <li><a href="signup.html">Signup</a></li>
+           
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>HustleHub</h1>
+        </div>
+        <div class="content">
+            <h2>Select Your Account Type</h2>
+            <p>You can change this later if needed.</p>
+            <ul class="options">
+                <li><a href="signupf.html">I want to work</a></li>
+                <li><a href="signupj.html">I want to hire</a></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
