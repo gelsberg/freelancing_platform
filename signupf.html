@@ -3,195 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelancer Signup</title>
+    <title>Freelancer Signup — HustleHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg: #070d1a;
+            --card: #111b30;
+            --field: #0b1322;
+            --line: rgba(148, 163, 184, 0.14);
+            --line-strong: rgba(148, 163, 184, 0.28);
+            --ink: #e8eef8;
+            --muted: #92a4c0;
+            --teal: #2dd4bf;
+            --grad: linear-gradient(135deg, #2dd4bf, #38bdf8);
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0d3b4a;
-            color: #fff;
-            margin: 0;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            min-height: 100vh;
         }
 
         .navbar {
-            background-color: #fff;
-            padding: 10px 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar ul {
-            list-style-type: none;
+            position: sticky;
+            top: 0;
+            z-index: 100;
             display: flex;
+            align-items: center;
             justify-content: space-between;
+            padding: 16px 6vw;
+            background: rgba(7, 13, 26, 0.72);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
         }
 
-        .navbar ul li {
-            display: inline;
-        }
-
-        .navbar a {
+        .brand {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
             text-decoration: none;
-            color: #092635;
-            padding: 15px;
-            transition: background-color 0.3s ease;
+            color: var(--ink);
         }
 
-        .navbar .title {
-            font-size: 1.8em;
-            color: #0d3b4a;
-            font-weight: bold;
+        .brand span {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .navbar a:hover {
-            background-color: #e3e3e3;
-            border-radius: 5px;
-        }
+        .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
 
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: #fff;
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            padding: 8px 14px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-            padding: 30px;
+            transition: color 0.2s, background 0.2s;
         }
 
-        .header {
-            text-align: center;
-            background-color: #17455c;
-            padding: 20px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+        .nav-links a:hover { color: var(--ink); background: rgba(148, 163, 184, 0.1); }
+
+        main {
+            position: relative;
+            padding: 60px 6vw 90px;
+            overflow: hidden;
         }
 
-        .header h1 {
-            color: #fff;
-            font-size: 2.2em;
-            margin: 0;
+        main::before {
+            content: '';
+            position: absolute;
+            width: 520px; height: 520px;
+            border-radius: 50%;
+            background: #0e7490;
+            filter: blur(130px);
+            opacity: 0.25;
+            top: -160px; left: -140px;
+            pointer-events: none;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        .panel {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 44px clamp(24px, 5vw, 48px);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
         }
+
+        .panel-head { text-align: center; margin-bottom: 36px; }
+
+        .panel-head .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--teal);
+            border: 1px solid rgba(45, 212, 191, 0.35);
+            background: rgba(45, 212, 191, 0.08);
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+        }
+
+        .panel-head h1 {
+            font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .panel-head p { color: var(--muted); margin-top: 8px; font-size: 0.95rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 16px;
+        }
+
+        .field { display: flex; flex-direction: column; }
+        .field.full { grid-column: 1 / -1; }
 
         label {
-            display: block;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--muted);
+            margin-bottom: 7px;
+            letter-spacing: 0.02em;
         }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        textarea {
-            width: calc(100% - 20px);
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #f0f0f0;
+        input, select {
+            width: 100%;
+            font: inherit;
+            font-size: 0.95rem;
+            color: var(--ink);
+            background: var(--field);
+            border: 1px solid var(--line-strong);
+            border-radius: 12px;
+            padding: 12px 15px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        textarea {
-            resize: vertical;
+        input::placeholder { color: #526074; }
+
+        select { appearance: none; cursor: pointer; }
+
+        .field.select { position: relative; }
+
+        .field.select::after {
+            content: '▾';
+            position: absolute;
+            right: 15px;
+            bottom: 13px;
+            color: var(--muted);
+            pointer-events: none;
+            font-size: 0.85rem;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.18);
+        }
+
+        .error {
+            display: none;
+            grid-column: 1 / -1;
+            background: rgba(248, 113, 113, 0.1);
+            border: 1px solid rgba(248, 113, 113, 0.4);
+            color: #fca5a5;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 12px 16px;
         }
 
         button[type="submit"] {
-            width: 100%;
-            padding: 15px;
+            grid-column: 1 / -1;
+            margin-top: 10px;
             border: none;
-            border-radius: 5px;
-            background-color: #17455c;
-            color: #fff;
-            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            font: inherit;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #06202b;
+            background: var(--grad);
+            padding: 15px;
+            border-radius: 12px;
+            transition: filter 0.2s, transform 0.15s;
+            box-shadow: 0 8px 26px rgba(45, 212, 191, 0.3);
         }
 
-        button[type="submit"]:hover {
-            background-color: #0d3b4a;
+        button[type="submit"]:hover { filter: brightness(1.08); }
+        button[type="submit"]:active { transform: scale(0.99); }
+
+        .alt {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin-top: 6px;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .navbar ul {
-                flex-direction: column;
-                align-items: center;
-            }
+        .alt a { color: var(--teal); font-weight: 600; text-decoration: none; }
+        .alt a:hover { text-decoration: underline; }
 
-            .container {
-                margin: 20px auto;
-            }
+        @media (max-width: 560px) {
+            .grid { grid-template-columns: 1fr; }
+            .nav-links a:not(:last-child) { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a class="title" href="first.html"><b>HustleHub</b></a></li>
-            <li><a href="jobs.html">Browse Jobs</a></li>
-            <li><a href="user.html">Users</a></li>
-            <li><a href="pages.html">Pages</a></li>
-            <li><a href="signin.html">Signin</a></li>
-            <li><a href="signup.html">Signup</a></li>
-            <li><a href="profile.html">Profile</a></li>
-        </ul>
-    </div>
 
-    <div class="container">
-        <div class="header">
-            <h1>Freelancer Signup</h1>
-        </div>
-        <div class="content">
-            <form action="signupf.php" method="POST">
-                <div class="form-group">
-                    <label for="fullname">Full Name:</label>
-                    <input type="text" id="fullname" name="fullname" required>
+    <nav class="navbar">
+        <a class="brand" href="first.html">Hustle<span>Hub</span></a>
+        <ul class="nav-links">
+            <li><a href="first.html">Home</a></li>
+            <li><a href="signup.html">Account type</a></li>
+            <li><a href="signin.html">Sign in</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="panel">
+            <div class="panel-head">
+                <span class="badge">Freelancer account</span>
+                <h1>Start earning on your terms</h1>
+                <p>Create your profile so clients can find and hire you.</p>
+            </div>
+
+            <form class="grid" id="signupForm" action="/signupf" method="POST">
+                <div class="field full">
+                    <label for="fullname">Full name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Jane Doe" required>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+
+                <div class="field full">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" minlength="6" required>
                 </div>
-                <div class="form-group">
-                    <label for="confirm_password">Confirm Password:</label>
-                    <input type="password" id="confirm_password" name="confirm_password" required>
+
+                <div class="field">
+                    <label for="confirm_password">Confirm password</label>
+                    <input type="password" id="confirm_password" placeholder="••••••••" required>
                 </div>
-                <div class="form-group">
-                    <label for="skills">Skills:</label>
-                    <input type="text" id="skills" name="skills">
+
+                <div class="error" id="pwError">Passwords don't match — please re-enter them.</div>
+
+                <div class="field">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="16" max="100" placeholder="24" required>
                 </div>
-                <div class="form-group">
-                    <label for="experience">Experience (years):</label>
-                    <input type="number" id="experience" name="experience" min="0">
+
+                <div class="field select">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select…</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                        <option>Prefer not to say</option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="location">Location:</label>
-                    <input type="text" id="location" name="location">
+
+                <div class="field">
+                    <label for="mobile">Mobile number</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="98765 43210" required>
                 </div>
-                <div class="form-group">
-                    <label for="hourly_rate">Hourly Rate ($):</label>
-                    <input type="number" id="hourly_rate" name="hourly_rate" min="0">
+
+                <div class="field">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" placeholder="Goa" required>
                 </div>
-                <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea id="description" name="description" rows="4"></textarea>
+
+                <div class="field full">
+                    <label for="skills">Skills</label>
+                    <input type="text" id="skills" name="skills" placeholder="Web development, UI design, copywriting…" required>
                 </div>
-                <div class="form-group">
-                    <button type="submit">Sign Up</button>
+
+                <div class="field">
+                    <label for="experience">Experience (years)</label>
+                    <input type="number" id="experience" name="experience" min="0" placeholder="3" required>
                 </div>
+
+                <div class="field">
+                    <label for="hourly_rate">Hourly rate ($)</label>
+                    <input type="number" id="hourly_rate" name="hourly_rate" min="0" placeholder="25" required>
+                </div>
+
+                <div class="field full">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" placeholder="Remote / City name" required>
+                </div>
+
+                <button type="submit">Create my freelancer profile</button>
+
+                <p class="alt">Already have an account? <a href="signin.html">Sign in</a> · Hiring instead? <a href="signupj.html">Client signup</a></p>
             </form>
         </div>
-    </div>
+    </main>
+
+    <script>
+        const form = document.getElementById('signupForm');
+        const pw = document.getElementById('password');
+        const confirmPw = document.getElementById('confirm_password');
+        const pwError = document.getElementById('pwError');
+
+        form.addEventListener('submit', function (e) {
+            if (pw.value !== confirmPw.value) {
+                e.preventDefault();
+                pwError.style.display = 'block';
+                confirmPw.focus();
+            } else {
+                pwError.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

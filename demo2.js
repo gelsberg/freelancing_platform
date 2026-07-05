@@ -4,7 +4,7 @@ const { URLSearchParams } = require('url');
 const mongoose = require('mongoose');
 
 // Replace the local connection string with the MongoDB Atlas connection string
-mongoose.connect('mongodb+srv://gelsberge:<01032004@+>@webdev3.az963.mongodb.net/', {
+mongoose.connect('mongodb+srv://gelsberge:<db_password>@webdev3.az963.mongodb.net/', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
